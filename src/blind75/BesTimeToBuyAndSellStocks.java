@@ -2,7 +2,6 @@ package blind75;
 
 import utils.InputDataReader;
 
-import java.util.Scanner;
 
 public class BesTimeToBuyAndSellStocks {
     public static int maxProfit(int[] prices){

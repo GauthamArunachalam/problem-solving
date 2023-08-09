@@ -2,8 +2,6 @@ package blind75;
 
 import utils.InputDataReader;
 
-import java.util.Scanner;
-
 public class ProductOfArrExceptSelf {
 
     public static int[] productExceptSelf(int[] nums){
