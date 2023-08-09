@@ -1,5 +1,7 @@
 package blind75;
 
+import utils.InputDataReader;
+
 import java.util.*;
 
 public class GroupAnagrams {
@@ -43,16 +45,8 @@ public class GroupAnagrams {
     }
 
     public static void main(String args[]){
-        Scanner scan = new Scanner(System.in);
-
-        System.out.println("Enter the number of elements : ");
-        int n = scan.nextInt();
-
-        String[] elements = new String[n];
-        for(int i=0;i<n; i++){
-            System.out.println("Enter the "+ (i+1) +" element : ");
-            elements[i] = scan.next();
-        }
+        InputDataReader inputDataReader = new InputDataReader();
+        String[] elements = inputDataReader.readStringArr();
 
         List<List<String>> ans = groupAnagrams(elements);
         for(List<String> ele : ans){

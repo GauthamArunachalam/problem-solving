@@ -1,5 +1,7 @@
 package blind75;
 
+import utils.InputDataReader;
+
 import java.util.Scanner;
 
 public class ProductOfArrExceptSelf {
@@ -20,18 +22,11 @@ public class ProductOfArrExceptSelf {
     }
 
     public static void main(String args[]){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter the number of elements : ");
-        int n = scan.nextInt();
-
-        int arr[] = new int[n];
-        for(int i=0; i<n;i++){
-            System.out.println("Enter the "+ (i+1) +" element : ");
-            arr[i] = scan.nextInt();
-        }
+        InputDataReader inputDataReader = new InputDataReader();
+        int arr[] = inputDataReader.readIntArr();
 
         int ans[] = productExceptSelf(arr);
-        for(int i=0;i<n;i++){
+        for(int i=0;i<arr.length;i++){
             System.out.println(ans[i]);
         }
     }

@@ -1,5 +1,7 @@
 package blind75;
 
+import utils.InputDataReader;
+
 import java.util.Scanner;
 
 public class ValidPanlindrome {
@@ -43,11 +45,8 @@ public class ValidPanlindrome {
     }
 
     public static void main(String args[]){
-        Scanner scan = new Scanner(System.in);
-        String input;
-
-        System.out.println("Enter the input string : ");
-        input = scan.nextLine();
+        InputDataReader inputReader = new InputDataReader();
+        String input = inputReader.readStringFullLine();
 
         System.out.println(isPanlindrome(input));
     }

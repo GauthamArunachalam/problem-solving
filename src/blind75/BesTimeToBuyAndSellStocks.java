@@ -1,5 +1,7 @@
 package blind75;
 
+import utils.InputDataReader;
+
 import java.util.Scanner;
 
 public class BesTimeToBuyAndSellStocks {
@@ -26,14 +28,8 @@ public class BesTimeToBuyAndSellStocks {
     }
 
     public static void main(String args[]){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter number of days: ");
-        int n = scan.nextInt();
-        int prices[] = new int[n];
-        for(int i=0; i<n; i++){
-            System.out.println("Enter the "+ (i+1) +" element : ");
-            prices[i] = scan.nextInt();
-        }
+        InputDataReader inputDataReader = new InputDataReader();
+        int prices[] = inputDataReader.readIntArr();
 
         System.out.println(maxProfit(prices));
     }

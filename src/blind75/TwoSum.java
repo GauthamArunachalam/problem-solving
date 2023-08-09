@@ -1,5 +1,7 @@
 package blind75;
 
+import utils.InputDataReader;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -21,20 +23,9 @@ public class TwoSum {
     }
 
     public static void main(String args[]){
-        Scanner scan = new Scanner(System.in);
-        int n, targetSum;
-
-        System.out.println("Enter the number of elements : ");
-        n = scan.nextInt();
-
-        int arr[] = new int[n];
-        for(int i=0; i<n; i++){
-            System.out.println("Enter the "+ (i+1)+" element : ");
-            arr[i] = scan.nextInt();
-        }
-
-        System.out.println("Enter target sum : ");
-        targetSum = scan.nextInt();
+        InputDataReader inputDataReader = new InputDataReader();
+        int arr[] = inputDataReader.readIntArr();
+        int targetSum = inputDataReader.readSingleInt();
 
         int[] ans = twoSum(arr, targetSum);
         for(int i=0;i<ans.length; i++){

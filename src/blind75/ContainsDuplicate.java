@@ -1,5 +1,7 @@
 package blind75;
 
+import utils.InputDataReader;
+
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -17,16 +19,8 @@ public class ContainsDuplicate {
     }
 
     public static void main(String args[]){
-        Scanner scan = new Scanner(System.in);
-        int n;
-        System.out.println("Enter number of elements: ");
-        n = scan.nextInt();
-
-        int arr[] = new int[n];
-        for(int i=0; i<n;i++){
-            System.out.println("Enter the "+ (i+1) +" element : ");
-            arr[i] = scan.nextInt();
-        }
+        InputDataReader inputDataReader = new InputDataReader();
+        int arr[] = inputDataReader.readIntArr();
 
         System.out.println(containsDuplicate(arr));
     }

@@ -1,5 +1,7 @@
 package blind75;
 
+import utils.InputDataReader;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -43,14 +45,9 @@ public class ValidAnagram {
     }
 
     public static void main(String args[]){
-        Scanner scan = new Scanner(System.in);
-
-        String s, t;
-        System.out.println("Enter first String : ");
-        s = scan.next();
-
-        System.out.println("Enter second String: ");
-        t = scan.next();
+        InputDataReader inputReader = new InputDataReader();
+        String s = inputReader.readSingleString();
+        String t = inputReader.readSingleString();
 
         System.out.println(isAnagram(s, t));
     }
