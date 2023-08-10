@@ -26,7 +26,7 @@ public class SimpleStackImpl <T>{
     }
 
     public void push(T ele){
-        if(stack.size() == this.size){
+        if(!autoResize && stack.size() == this.size){
             throw new StackOverflowError("Stack Overflow");
         }
         stack.add(ele);
