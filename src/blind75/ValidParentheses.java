@@ -1,37 +1,11 @@
 package blind75;
 
 import utils.InputDataReader;
+import utils.datastructures.SimpleStackImpl;
 
 import java.util.*;
 
 public class ValidParentheses {
-
-    public static class SimpleStackImpl<T>{
-
-        private List<T> stack;
-
-        public SimpleStackImpl(){
-            stack = new LinkedList<T>();
-        }
-
-        public void push(T c){
-            stack.add(c);
-        }
-
-        public T pop(){
-            T c = stack.get(stack.size()-1);
-            stack.remove(stack.size()-1);
-            return c;
-        }
-
-        public T peek(){
-            return stack.get(stack.size()-1);
-        }
-
-        public boolean isEmpty(){
-            return stack.size() == 0;
-        }
-    }
 
     public static boolean isValid(String str){
         Map<Character, Character> partenthesesMap = new HashMap<Character, Character>();
