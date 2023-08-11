@@ -1,6 +1,6 @@
 package utils.datastructures;
 
-public abstract class Node <T>{
+public abstract class Node <T extends Comparable<T>>{
 
     private T value;
 
@@ -10,5 +10,9 @@ public abstract class Node <T>{
 
     public T getValue(){
         return this.value;
+    }
+
+    public int compareTo(Node<T> that){
+        return this.value.compareTo(that.getValue());
     }
 }

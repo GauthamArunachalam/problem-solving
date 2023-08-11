@@ -1,14 +1,14 @@
 package utils.datastructures;
 
-public class ListNode<T> extends Node{
+public class ListNode<T extends Comparable<T>> extends Node<T>{
 
-    private Node next;
+    private Node<T> next;
 
     public ListNode(T value){
         super(value);
     }
 
-    public ListNode(T value, Node next){
+    public ListNode(T value, Node<T> next){
         super(value);
         this.next = next;
     }
@@ -17,7 +17,7 @@ public class ListNode<T> extends Node{
         return (ListNode<T>) this.next;
     }
 
-    public void setNext(Node next){
+    public void setNext(Node<T> next){
         this.next = next;
     }
 }

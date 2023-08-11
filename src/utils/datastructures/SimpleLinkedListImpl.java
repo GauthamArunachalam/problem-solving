@@ -3,7 +3,7 @@ package utils.datastructures;
 
 import java.util.List;
 
-public class SimpleLinkedListImpl<T> {
+public class SimpleLinkedListImpl<T extends Comparable<T>> {
 
     private ListNode<T> head;
 
@@ -93,5 +93,50 @@ public class SimpleLinkedListImpl<T> {
             temp = (ListNode<T>) temp.getNext();
         }
         return strB.toString();
+    }
+
+    public void mergeSortedList(SimpleLinkedListImpl<T> list2){
+        if(list2.getHead() == null){
+            return;
+        }
+
+        ListNode<T> currentNode = null;
+        ListNode<T> list1Pt = getHead();
+        ListNode<T> list2Pt = list2.getHead();
+
+        if(list1Pt == null){
+            this.head = list2Pt;
+            updateTail();
+        }
+
+        if(list1Pt.compareTo(list2Pt) > 0){
+            currentNode = list2Pt;
+            list2Pt = list2Pt.getNext();
+        }else{
+            currentNode = list1Pt;
+            list1Pt = list1Pt.getNext();
+        }
+
+        while(list1Pt != null || list2Pt != null){
+            if(list1Pt == null){
+                currentNode.setNext(list2Pt);
+                return;
+            }
+
+            if(list2Pt == null){
+                currentNode.setNext(list1Pt);
+                return;
+            }
+
+            if(list1Pt.compareTo(list2Pt) > 0){
+                currentNode.setNext(list2Pt);
+                list2Pt = list2Pt.getNext();
+            }else{
+                currentNode.setNext(list1Pt);
+                list1Pt = list1Pt.getNext();
+            }
+            currentNode = currentNode.getNext();
+        }
+        updateTail();
     }
 }
