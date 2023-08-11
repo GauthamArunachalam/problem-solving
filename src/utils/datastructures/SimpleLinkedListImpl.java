@@ -139,4 +139,22 @@ public class SimpleLinkedListImpl<T extends Comparable<T>> {
         }
         updateTail();
     }
+
+    public boolean isCyclic(){
+        ListNode<T> slow = getHead(), fast = getHead();
+
+        while(fast != null && fast.getNext() != null){
+            slow = slow.getNext();
+            fast = fast.getNext().getNext();
+            if(slow == fast){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void linkTailToHead(){
+        this.tail.setNext(this.head);
+    }
 }
