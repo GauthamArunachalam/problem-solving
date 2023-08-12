@@ -34,17 +34,43 @@ public class SimpleBinaryTreeImpl<T extends Comparable<T>> {
         }
     }
 
-    public void inorderTraversal(){
-        printInorder(this.root);
+    public void preOrderTraversal(){
+        printPreOrder(this.root);
     }
 
-    private void printInorder(BinaryTreeNode<T> node){
+    private void printPreOrder(BinaryTreeNode<T> node){
         if(node == null){
             return;
         }
         System.out.print(node.getValue() + " -> ");
-        printInorder(node.getLeft());
-        printInorder(node.getRight());
+        printPreOrder(node.getLeft());
+        printPreOrder(node.getRight());
+    }
+
+    public void inOrderTraversal(){
+        printInOrder(this.root);
+    }
+
+    private void printInOrder(BinaryTreeNode<T> node){
+        if(node == null){
+            return;
+        }
+        printInOrder(node.getLeft());
+        System.out.print(node.getValue() + " -> ");
+        printInOrder(node.getRight());
+    }
+
+    public void postOrderTraversal(){
+        printPostOrder(this.root);
+    }
+
+    private void printPostOrder(BinaryTreeNode<T> node){
+        if(node == null){
+            return;
+        }
+        printPostOrder(node.getLeft());
+        printPostOrder(node.getRight());
+        System.out.println(node.getValue() + " -> ");
     }
 
     public void invertBinaryTree(){

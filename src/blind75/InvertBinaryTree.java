@@ -1,7 +1,6 @@
 package blind75;
 
 import utils.InputDataReader;
-import utils.datastructures.BinaryTreeNode;
 import utils.datastructures.SimpleBinaryTreeImpl;
 
 public class InvertBinaryTree {
@@ -12,6 +11,6 @@ public class InvertBinaryTree {
 
         SimpleBinaryTreeImpl<Integer> binaryTree = new SimpleBinaryTreeImpl<Integer>(arr);
         binaryTree.invertBinaryTree();
-        binaryTree.inorderTraversal();
+        binaryTree.preOrderTraversal();
     }
 }
