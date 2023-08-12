@@ -37,6 +37,23 @@ public class InputDataReader {
         return arr;
     }
 
+    public Integer[] readWrapperIntArr(){
+        System.out.println("Enther the number of elements : ");
+        int n = scan.nextInt();
+
+        Integer[] arr = new Integer[n];
+        for(int i=0;i<n;i++){
+            System.out.println("Enter the "+ (i+1) +" element : ");
+            String temp = scan.next();
+            if(temp.equals("null")){
+                arr[i] = null;
+            }else{
+                arr[i] = new Integer(temp);
+            }
+        }
+        return arr;
+    }
+
     public String[] readStringArr(){
         System.out.println("Enter the number of elements : ");
         int n = scan.nextInt();
