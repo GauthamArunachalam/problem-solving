@@ -88,4 +88,23 @@ public class SimpleBinaryTreeImpl<T extends Comparable<T>> {
         node.setLeft(node.getRight());
         node.setRight(temp);
     }
+
+    public int getMaxDepth(){
+        if(this.root == null){
+            return 0;
+        }
+
+        return calcualteMaxDepth(this.root, 1);
+    }
+
+    private int calcualteMaxDepth(BinaryTreeNode<T> node, int depth){
+        if(node == null){
+            return depth - 1;
+        }
+
+        int leftDepth = calcualteMaxDepth(node.getLeft(), depth+1);
+        int rightDepth = calcualteMaxDepth(node.getRight(), depth + 1);
+
+        return Math.max(leftDepth, rightDepth);
+    }
 }
