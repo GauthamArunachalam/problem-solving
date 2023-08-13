@@ -17,6 +17,10 @@ public class SimpleBinaryTreeImpl<T extends Comparable<T>> {
         constructBinaryTree(this.root, arr, 0);
     }
 
+    public BinaryTreeNode<T> getRoot(){
+        return this.root;
+    }
+
     public void constructBinaryTree(BinaryTreeNode<T> node, T arr[], int currentIndex){
         int leftPos = (2 * currentIndex) + 1;
         int rightPos = (2 * currentIndex) + 2;
@@ -94,17 +98,31 @@ public class SimpleBinaryTreeImpl<T extends Comparable<T>> {
             return 0;
         }
 
-        return calcualteMaxDepth(this.root, 1);
+        return calcualateMaxDepth(this.root, 1);
     }
 
-    private int calcualteMaxDepth(BinaryTreeNode<T> node, int depth){
+    private int calcualateMaxDepth(BinaryTreeNode<T> node, int depth){
         if(node == null){
             return depth - 1;
         }
 
-        int leftDepth = calcualteMaxDepth(node.getLeft(), depth+1);
-        int rightDepth = calcualteMaxDepth(node.getRight(), depth + 1);
+        int leftDepth = calcualateMaxDepth(node.getLeft(), depth+1);
+        int rightDepth = calcualateMaxDepth(node.getRight(), depth + 1);
 
         return Math.max(leftDepth, rightDepth);
+    }
+
+    public boolean isSame(SimpleBinaryTreeImpl<T> that){
+        return isSame(this.root, that.getRoot());
+    }
+
+    private boolean isSame(BinaryTreeNode<T> node1, BinaryTreeNode<T> node2){
+        if(node1 == null && node2 == null){
+            return true;
+        }
+        if(node1 == null || node2 == null){
+            return false;
+        }
+        return node1.compareTo(node2) ==0 && isSame(node1.getLeft(), node2.getLeft()) && isSame(node1.getRight(), node2.getRight());
     }
 }
