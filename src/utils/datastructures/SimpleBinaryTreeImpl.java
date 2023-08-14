@@ -125,4 +125,23 @@ public class SimpleBinaryTreeImpl<T extends Comparable<T>> {
         }
         return node1.compareTo(node2) ==0 && isSame(node1.getLeft(), node2.getLeft()) && isSame(node1.getRight(), node2.getRight());
     }
+
+    public boolean isSubTree(SimpleBinaryTreeImpl<T> subTree){
+        return isSubTree(this.root, subTree.getRoot());
+    }
+
+    private boolean isSubTree(BinaryTreeNode<T> tree, BinaryTreeNode<T> subTree){
+        if(subTree == null){
+            return true;
+        }
+        if(tree == null){
+            return false;
+        }
+
+        if(isSame(tree, subTree)){
+            return true;
+        }
+
+        return isSubTree(tree.getLeft(), subTree) || isSubTree(tree.getRight(), subTree);
+    }
 }
