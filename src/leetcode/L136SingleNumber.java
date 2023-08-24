@@ -2,7 +2,7 @@ package leetcode;
 
 import utils.InputDataReader;
 
-public class SingleNumber {
+public class L136SingleNumber {
 
     public static int singleNumber(int[] nums){
         int res = nums[0];
