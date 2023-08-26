@@ -54,6 +54,13 @@ public class InputDataReader {
         return arr;
     }
 
+
+    public char[] readCharArr(){
+        System.out.println("Enter the input arr as a string : ");
+        String value = scan.next();
+        return value.toCharArray();
+    }
+
     public String[] readStringArr(){
         System.out.println("Enter the number of elements : ");
         int n = scan.nextInt();
