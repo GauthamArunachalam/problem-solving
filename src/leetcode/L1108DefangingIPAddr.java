@@ -1,8 +1,8 @@
-package leetcode.L1108;
+package leetcode;
 
 import utils.InputDataReader;
 
-public class DefangingIPAddr {
+public class L1108DefangingIPAddr {
 
     public static String defangIPAddr(String addr){
         StringBuilder strBul = new StringBuilder();
