@@ -84,4 +84,10 @@ public class InputDataReader {
         }
         return strArr;
     }
+
+    public double readSingleDouble(){
+        System.out.println("Enter the double value : ");
+        double doubleVal = scan.nextDouble();
+        return doubleVal;
+    }
 }
