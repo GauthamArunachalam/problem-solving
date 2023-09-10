@@ -37,6 +37,22 @@ public class InputDataReader {
         return arr;
     }
 
+    public int[][] read2DIntArr() {
+        System.out.println("Enter the number of rows : ");
+        int row = scan.nextInt();
+
+        System.out.println("Enter the number of columns : ");
+        int col = scan.nextInt();
+        int[][] mat = new int[row][col];
+        for (int i=0; i<row; i++) {
+            for (int j=0; j<col; j++) {
+                System.out.println("Enter "+ i +" X "+ j +" element : ");
+                mat[i][j] = scan.nextInt();
+            }
+        }
+        return mat;
+    }
+
     public Integer[] readWrapperIntArr(){
         System.out.println("Enther the number of elements : ");
         int n = scan.nextInt();
