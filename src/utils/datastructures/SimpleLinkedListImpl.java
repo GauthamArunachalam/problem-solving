@@ -157,4 +157,36 @@ public class SimpleLinkedListImpl<T extends Comparable<T>> {
     public void linkTailToHead(){
         this.tail.setNext(this.head);
     }
+
+    public void reOrderList () {
+        ListNode<T> slow = this.head;
+        ListNode<T> fast = this.head.getNext();
+
+        while (fast != null && fast.getNext() != null) {
+            fast = fast.getNext().getNext();
+            slow = slow.getNext();
+        }
+
+        ListNode<T> secondListPt = slow.getNext();
+        slow.setNext(null);
+        ListNode<T> previousNode = null;
+        while (secondListPt != null) {
+            ListNode<T> temp = secondListPt.getNext();
+            secondListPt.setNext(previousNode);
+            previousNode = secondListPt;
+            secondListPt = temp;
+        }
+
+        ListNode<T> frontHeader = this.head;
+        ListNode<T> backPt = previousNode;
+        while (backPt != null) {
+            ListNode<T> frontTemp = frontHeader.getNext();
+            ListNode<T> backTemp = backPt.getNext();
+            frontHeader.setNext(backPt);
+            backPt.setNext(frontTemp);
+            frontHeader = frontTemp;
+            backPt = backTemp;
+        }
+
+    }
 }
