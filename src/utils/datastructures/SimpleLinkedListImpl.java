@@ -187,6 +187,26 @@ public class SimpleLinkedListImpl<T extends Comparable<T>> {
             frontHeader = frontTemp;
             backPt = backTemp;
         }
+    }
 
+    public void removeNthNodeFromLast (int nodeCountFromLast) {
+        if (this.head.getNext() == null) {
+            this.head = null;
+            return;
+        }
+        ListNode<T> left = new ListNode<T>(null);
+        left.setNext(this.head);
+        ListNode<T> right = this.head;
+        while (nodeCountFromLast > 0) {
+            right = right.getNext();
+            nodeCountFromLast--;
+        }
+
+        while (right != null) {
+            left = left.getNext();
+            right = right.getNext();
+        }
+
+        left.setNext(left.getNext().getNext());
     }
 }
