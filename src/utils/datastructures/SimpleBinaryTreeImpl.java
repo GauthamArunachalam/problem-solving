@@ -1,5 +1,7 @@
 package utils.datastructures;
 
+import java.util.*;
+
 public class SimpleBinaryTreeImpl<T extends Comparable<T>> {
 
     private BinaryTreeNode<T> root;
@@ -26,15 +28,19 @@ public class SimpleBinaryTreeImpl<T extends Comparable<T>> {
         int rightPos = (2 * currentIndex) + 2;
 
         if(leftPos < arr.length){
-            BinaryTreeNode<T> leftNode = new BinaryTreeNode<T>(arr[leftPos]);
-            node.setLeft(leftNode);
-            constructBinaryTree(leftNode, arr, leftPos);
+            if (arr[leftPos] != null) {
+                BinaryTreeNode<T> leftNode = new BinaryTreeNode<T>(arr[leftPos]);
+                node.setLeft(leftNode);
+                constructBinaryTree(leftNode, arr, leftPos);
+            }
         }
 
         if(rightPos < arr.length){
-            BinaryTreeNode<T> rightNode = new BinaryTreeNode<T>(arr[rightPos]);
-            node.setRight(rightNode);
-            constructBinaryTree(rightNode, arr, rightPos);
+            if (arr[rightPos] != null) {
+                BinaryTreeNode<T> rightNode = new BinaryTreeNode<T>(arr[rightPos]);
+                node.setRight(rightNode);
+                constructBinaryTree(rightNode, arr, rightPos);
+            }
         }
     }
 
@@ -75,6 +81,29 @@ public class SimpleBinaryTreeImpl<T extends Comparable<T>> {
         printPostOrder(node.getLeft());
         printPostOrder(node.getRight());
         System.out.println(node.getValue() + " -> ");
+    }
+
+    public List<List<T>> getLevelOrderTraversal() {
+        BinaryTreeNode<T> node = this.getRoot();
+        List<List<T>> ans = new ArrayList<List<T>>();
+        LinkedList<BinaryTreeNode<T>> queue = new LinkedList<BinaryTreeNode<T>>();
+        queue.add(node);
+        while (!queue.isEmpty()) {
+            int len = queue.size();
+            List<T> level = new ArrayList<T>();
+            for (int i=0; i<len;i++) {
+                BinaryTreeNode<T> val = queue.pop();
+                if (val != null) {
+                    level.add(val.getValue());
+                    queue.add(val.getLeft());
+                    queue.add(val.getRight());
+                }
+            }
+            if (!level.isEmpty()) {
+                ans.add(level);
+            }
+        }
+        return ans;
     }
 
     public void invertBinaryTree(){
