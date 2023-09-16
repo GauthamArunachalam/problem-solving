@@ -180,4 +180,30 @@ public class SimpleBinaryTreeImpl<T extends Comparable<T>> {
 
         return isSubTree(tree.getLeft(), subTree) || isSubTree(tree.getRight(), subTree);
     }
+
+    public SimpleBinaryTreeImpl<T> constructTree(T[] preOrder, T[] inOrder) {
+        this.root = getTreeInputArr(preOrder, inOrder);
+        return this;
+    }
+
+
+    private BinaryTreeNode<T> getTreeInputArr(T[] preOrder, T[] inOrder) {
+        if (preOrder.length ==0 || inOrder.length == 0) {
+            return null;
+        }
+
+        BinaryTreeNode<T> root = new BinaryTreeNode<T>(preOrder[0]);
+        int mid = 0;
+        for (int i=0; i<inOrder.length; i++) {
+            if (preOrder[0] == inOrder[i]) {
+                mid = i;
+                break;
+            }
+        }
+
+        root.setLeft(getTreeInputArr(Arrays.copyOfRange(preOrder, 1, mid + 1), Arrays.copyOfRange(inOrder, 0, mid)));
+        root.setRight(getTreeInputArr(Arrays.copyOfRange(preOrder, mid + 1, preOrder.length), Arrays.copyOfRange(inOrder, mid + 1, inOrder.length)));
+
+        return root;
+    }
 }
