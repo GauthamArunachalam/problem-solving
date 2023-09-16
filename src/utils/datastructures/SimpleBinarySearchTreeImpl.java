@@ -1,6 +1,9 @@
 package utils.datastructures;
 
 import javax.swing.tree.TreeNode;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 public class SimpleBinarySearchTreeImpl<T extends Comparable<T>> extends SimpleBinaryTreeImpl<T> {
 
@@ -58,5 +61,12 @@ public class SimpleBinarySearchTreeImpl<T extends Comparable<T>> extends SimpleB
             return Integer.MAX_VALUE;
         }
         return null;
+    }
+
+    public T getKthSmallestEle(int k) {
+        BinaryTreeNode<T> root = getRoot();
+        List<T> inOrder = new ArrayList<T>();
+        getInorderAsList(root, inOrder);
+        return inOrder.get(k - 1);
     }
 }

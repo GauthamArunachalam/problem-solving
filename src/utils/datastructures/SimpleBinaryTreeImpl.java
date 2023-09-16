@@ -70,6 +70,13 @@ public class SimpleBinaryTreeImpl<T extends Comparable<T>> {
         printInOrder(node.getRight());
     }
 
+    protected void getInorderAsList(BinaryTreeNode<T> node, List<T> list) {
+        if (node == null) return;
+        getInorderAsList(node.getLeft(), list);
+        list.add(node.getValue());
+        getInorderAsList(node.getRight(), list);
+    }
+
     public void postOrderTraversal(){
         printPostOrder(this.root);
     }
