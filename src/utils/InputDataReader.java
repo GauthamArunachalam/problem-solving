@@ -77,6 +77,20 @@ public class InputDataReader {
         return value.toCharArray();
     }
 
+    public char[][] read2DCharArr() {
+        System.out.println("Enter the number of rows : ");
+        int row = scan.nextInt();
+
+        System.out.println("Enter the number of columns : ");
+        int col = scan.nextInt();
+        char[][] mat = new char[row][col];
+        for (int i=0; i<row; i++) {
+            System.out.println("Enter "+ i +" row of element : ");
+            mat[i] = scan.next().toCharArray();
+        }
+        return mat;
+    }
+
     public String[] readStringArr(){
         System.out.println("Enter the number of elements : ");
         int n = scan.nextInt();
