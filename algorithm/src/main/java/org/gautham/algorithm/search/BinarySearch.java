@@ -1,23 +1,36 @@
 package org.gautham.algorithm.search;
 
-public class BinarySearch<T extends Comparable<T>> implements Search<T>{
+import org.gautham.inputreader.ConsoleInputDataReader;
+import org.gautham.inputreader.InputDataProvider;
 
-  @Override
-  public int search(T[] arr, T target) {
-    int low = 0, high = arr.length -1 ;
+public class BinarySearch {
+
+  public int search(int[] arr, int target) {
+    int low = 0, high = arr.length - 1;
 
     while (low <= high) {
       int mid = (low + high) / 2;
-      T guess = arr[mid];
-      if (guess.equals(target)) {
+      int guess = arr[mid];
+
+      if (guess == target) {
         return mid;
-      } else if (guess.compareTo(target) > 0) {
-        low = mid + 1;
-      } else {
+      } else if (guess > target) {
         high = mid - 1;
+      } else {
+        low = mid + 1;
       }
     }
 
     return -1;
+  }
+
+  public static void main(String[] args) {
+    InputDataProvider idp = new ConsoleInputDataReader();
+
+    int[] arr = idp.getIntArr();
+    int target = idp.getSingleInt();
+
+    BinarySearch bs = new BinarySearch();
+    System.out.println(bs.search(arr, target));
   }
 }
