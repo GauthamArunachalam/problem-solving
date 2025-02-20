@@ -28,14 +28,4 @@ public class BinarySearch {
 
     return -1;
   }
-
-  public static void main(String[] args) {
-    InputDataProvider idp = new ConsoleInputDataReader();
-
-    int[] arr = idp.getIntArr();
-    int target = idp.getSingleInt();
-
-    BinarySearch bs = new BinarySearch();
-    System.out.println(bs.search(arr, target));
-  }
 }

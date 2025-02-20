@@ -26,12 +26,4 @@ public class SelectionSort implements Sort {
       arr[i] = temp;
     }
   }
-
-  public static void main(String[] args) {
-    InputDataProvider idp = new ConsoleInputDataReader();
-    int[] arr = idp.getIntArr();
-    SelectionSort sort = new SelectionSort();
-    sort.sort(arr);
-    System.out.println(Arrays.toString(arr));
-  }
 }

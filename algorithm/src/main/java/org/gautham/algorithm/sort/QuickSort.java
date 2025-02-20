@@ -57,14 +57,4 @@ public class QuickSort implements Sort {
       quickSort(arr, low, high);
   }
 
-  public static void main(String[] args) {
-    QuickSort quickSort = new QuickSort();
-    int[] arr = new int[]{7, 4, 23, 7, 55, 3, 6};
-    quickSort.sort(arr);
-
-    for (int a : arr) {
-      System.out.print(a + " ");
-    }
-  }
-
 }
