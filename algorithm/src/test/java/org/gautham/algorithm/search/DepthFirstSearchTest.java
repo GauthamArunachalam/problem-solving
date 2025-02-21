@@ -9,12 +9,12 @@ import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
-public class BreadthFirstSearchTest {
+public class DepthFirstSearchTest {
 
-  private BreadthFirstSearch bfs;
+  private DepthFirstSearch dfs = new DepthFirstSearch();
 
-  public BreadthFirstSearchTest() {
-    bfs = new BreadthFirstSearch();
+  public DepthFirstSearchTest() {
+    this.dfs = new DepthFirstSearch();
   }
 
   @Test
