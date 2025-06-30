@@ -2,6 +2,11 @@ package org.gautham.leetcode.algomaster;
 
 public class MoveZeroes {
 
+  /**
+   * Move zeros to the end of the array.
+   * Time complexity : O(n)
+   * Space Complexity : O(1)
+   * */
   public void moveZeroes(int[] nums) {
     int leftIndex = 0;
 
