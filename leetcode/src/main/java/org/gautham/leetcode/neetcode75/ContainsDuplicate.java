@@ -7,7 +7,10 @@ public class ContainsDuplicate {
   /**
    * Check is the given array contains any duplicates.
    * Returns true if duplicate is present else returns false
-   * It uses a HashSet to see if there are any duplicates in the given array*/
+   * It uses a HashSet to see if there are any duplicates in the given array
+   * Time Complexity : O(n)
+   * Space Complexity : O(n)
+   * */
   public boolean containsDuplicate(int[] nums) {
 
     HashSet<Integer> uniqueElements = new HashSet<>();
