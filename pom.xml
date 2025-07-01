@@ -9,8 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>input-reader</module>
-        <module>algorithm</module>
         <module>leetcode</module>
     </modules>
 
